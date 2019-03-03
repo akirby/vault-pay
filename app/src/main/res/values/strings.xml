@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Vault Pay</string>
+    <string name="title_home">Pay</string>
+    <string name="payment_methods_title">Payment Methods</string>
+    <string name="title_history">History</string>
+    <string name="aiddescription">Vault AIDs</string>
+    <string name="servicedesc">Vault Payment NFC Service</string>
+    <string name="pay_desc">This view will show the active card information and is the home screen</string>
+</resources>
