@@ -1,4 +1,4 @@
-package shsustudent.andrewkirby.vault;
+package com.vaultpayment.vault;
 
 import android.nfc.cardemulation.HostApduService;
 import android.os.Bundle;

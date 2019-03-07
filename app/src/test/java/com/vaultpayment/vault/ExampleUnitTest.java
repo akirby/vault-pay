@@ -1,4 +1,4 @@
-package shsustudent.andrewkirby.vault;
+package com.vaultpayment.vault;
 
 import org.junit.Test;
 

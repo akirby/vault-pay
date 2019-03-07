@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="shsustudent.andrewkirby.vault">
+    package="com.vaultpayment.vault">
 
     <uses-permission android:name="android.permission.NFC"/>
     <uses-feature android:name="android.hardware.nfc.hce" android:required="true" />
     <uses-feature android:name="android.hardware.nfc" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".OAuthActivity"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AuthenticateActivity"
+            android:noHistory="true"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- You will want to set customAppProtocol to something unique to avoid having Android
+                give the user more than one app to pick from to handle the oauth callback -->
+                <data android:scheme="@string/customAppProtocol"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vaultpayment.vault.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +46,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MyHostApduService" android:exported="true"
+        <service android:name="com.vaultpayment.vault.MyHostApduService" android:exported="true"
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
                 <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE"/>

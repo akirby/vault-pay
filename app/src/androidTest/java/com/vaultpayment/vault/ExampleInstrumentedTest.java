@@ -1,4 +1,4 @@
-package shsustudent.andrewkirby.vault;
+package com.vaultpayment.vault;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

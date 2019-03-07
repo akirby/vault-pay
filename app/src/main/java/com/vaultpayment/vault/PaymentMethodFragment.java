@@ -1,4 +1,4 @@
-package shsustudent.andrewkirby.vault;
+package com.vaultpayment.vault;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

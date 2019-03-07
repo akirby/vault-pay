@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Vault.iml" filepath="$PROJECT_DIR$/Vault.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vault-pay.iml" filepath="$PROJECT_DIR$/vault-pay.iml" />
     </modules>
   </component>
 </project>
