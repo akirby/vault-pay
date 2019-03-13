@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_monetization_on_black_24dp"
-        android:title="@string/title_home" />
+        android:icon="@drawable/ic_nav_01_pay_hit"
+        android:title="@string/title_home"/>
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_credit_card_black_24dp"
-        android:title="@string/payment_methods_title" />
+        android:icon="@drawable/ic_nav_01_methods"
+        android:title="@string/payment_methods_title"/>
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_history_black_24dp"
-        android:title="@string/title_history" />
+        android:icon="@drawable/ic_nav_01_history"
+        android:title="@string/title_history"/>
 
 </menu>
