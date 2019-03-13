@@ -14,7 +14,11 @@
     <string name="private_accounts_label">Private accounts json:</string>
     <string name="private_accounts_json_loading">Loading…</string>
     <string name="authenticating">Authenticating…</string>
+    <string name="Approved">Approve</string>
+    <string name="Deny">Decline</string>
     <!-- You will want to set customProtocol to something unique to avoid having Android
 		 give the user more than one app to pick from to handle the oauth callback -->
     <string name="customAppProtocol">com.vaultpayment.vault</string>
+    <string name="channel_name">Vault Payment</string>
+    <string name="channel_description">Vault Payment Requested</string>
 </resources>
