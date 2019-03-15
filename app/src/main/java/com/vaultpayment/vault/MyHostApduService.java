@@ -41,46 +41,8 @@ public class MyHostApduService extends HostApduService {
 
 
 
-//    private final BroadcastReceiver approveReceiver = new BroadcastReceiver() {
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            notificationManager.cancel(notificationId);
-////            String data = intent.getDataString();
-////            if(data != null && data.equals("Approve")){
-//                //TODO:Get tokenized account number
-//                String account = "some string random data some string random data some string random data some string random data some string random data some string random data some string random data some string random data some string data some string random data some string";
-//                byte[] accountBytes = account.getBytes();
-//                sendResponseApdu(ConcatArrays(accountBytes, SELECT_OK_SW));
-////            }
-////            else{
-////                sendResponseApdu(UNKNOWN_CMD_SW);
-////            }
-//        }
-//    };
-
-
-
-//    private final BroadcastReceiver denyReceiver = new BroadcastReceiver() {
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            notificationManager.cancel(notificationId);
-////            String data = intent.getDataString();
-////            if(data != null && data.equals("Approve")){
-////                //TODO:Get tokenized account number
-////                String account = "some string random data some string random data some string random data some string random data some string random data some string random data some string random data some string random data some string data some string random data some string";
-////                byte[] accountBytes = account.getBytes();
-////                sendResponseApdu(ConcatArrays(accountBytes, SELECT_OK_SW));
-////            }
-////            else{
-//                sendResponseApdu(UNKNOWN_CMD_SW);
-////            }
-//        }
-//    };
 
     private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         CharSequence name = getString(R.string.channel_name);
         String description = getString(R.string.channel_description);
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
@@ -90,7 +52,6 @@ public class MyHostApduService extends HostApduService {
         // or other notification behaviors after this
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);
-//        }
     }
     private ApprovalReceiver approveReceiver;
     private class ApprovalReceiver extends BroadcastReceiver{
@@ -99,7 +60,6 @@ public class MyHostApduService extends HostApduService {
 
             notificationManager.cancel(notificationId);
             String data = intent.getAction();
-            Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG);
             if(data != null && data.equals("com.vaultpayment.vault.Approve")){
                 //TODO:Get tokenized account number
                 String account = "some string random data some string random data some string random data some string random data some string random data some string random data some string random data some string random data some string data some string random data some string";
@@ -141,18 +101,10 @@ public class MyHostApduService extends HostApduService {
 
             public void showNotification(){
                 Context appContext = getApplicationContext();
-//                Intent approveIntent = new Intent(appContext, AlertUser.class);
-                Intent approveIntent = new Intent(appContext, ApprovalReceiver.class);
-                approveIntent.setData(Uri.parse("Approve"));
-                approveIntent.setAction("com.vaultpayment.vault.Approve");
-//                PendingIntent pendingIntent = PendingIntent.getActivity(appContext, 0, approveIntent, Intent.FILL_IN_ACTION);
+                Intent approveIntent = new Intent("com.vaultpayment.vault.Approve");
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(appContext, 4, approveIntent, PendingIntent.FLAG_ONE_SHOT);
 
-//                Intent denyIntent = new Intent(appContext, AlertUser.class);
-                Intent denyIntent = new Intent(appContext, ApprovalReceiver.class);
-                denyIntent.setData(Uri.parse("deny"));
-                denyIntent.setAction("com.vaultpayment.vault.Deny");
-//                PendingIntent denyPendingIntent = PendingIntent.getActivity(appContext, 0, denyIntent, Intent.FILL_IN_ACTION);
+                Intent denyIntent = new Intent("com.vaultpayment.vault.Deny");
                 PendingIntent denyPendingIntent = PendingIntent.getBroadcast(appContext, 3, denyIntent, PendingIntent.FLAG_ONE_SHOT);
 
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
@@ -160,14 +112,12 @@ public class MyHostApduService extends HostApduService {
                         .setContentTitle("Test Notification")
                         .setContentText("Test notification details")
                         .setAutoCancel(true)
-//                .setContentIntent(pendingIntent)
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .addAction(R.drawable.ic_vault_logo, getString(R.string.Approved),
                                 pendingIntent)
                         .addAction(R.drawable.ic_vault_logo, getString(R.string.Deny),
                                 denyPendingIntent);
-//        Notification myNotification = builder.build();
-//        myNotification.flags |= Notification.FLAG_AUTO_CANCEL;
+
 // notificationId is a unique int for each notification that you must define
                 notificationManager.notify(notificationId, builder.build());
             }
