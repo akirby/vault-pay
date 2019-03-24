@@ -104,8 +104,8 @@ public class VaultHostApduService extends HostApduService {
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_vault_logo)
-                    .setContentTitle("Test Notification")
-                    .setContentText("Test notification details")
+                    .setContentTitle("Vault Payment")
+                    .setContentText("Payment Requested")
                     .setAutoCancel(true)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .addAction(R.drawable.ic_vault_logo, getString(R.string.Approved),
