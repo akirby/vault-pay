@@ -74,10 +74,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getSupportActionBar().setTitle("");
-        //getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //getSupportActionBar().setLogo(R.mipmap.vault_logo);
-        //getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_main);
         AppCompatActivity thisActivity = this;
         if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.NFC)
